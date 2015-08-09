@@ -65,4 +65,13 @@ resource "aws_instance" "stress-tester" {
             key_file = "~/dev/mobile-sandbox.pem"
         } 
     }
+    provisioner "file" {
+        source = "load-test.py"
+        destination = "/home/ubuntu/perf-test.py"
+        connection {
+            user = "ubuntu"
+            type = "ssh"
+            key_file = "~/dev/mobile-sandbox.pem"
+        } 
+    }
 }
