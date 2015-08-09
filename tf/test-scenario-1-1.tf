@@ -27,7 +27,7 @@ resource "aws_dynamodb_table" "perf-test-table" {
 
 resource "aws_instance" "webserver" {
     ami = "ami-69631053"
-    instance_type = "t2.small"
+    instance_type = "m3.medium"
     key_name = "mobile-sandbox"
     iam_instance_profile = "dynamodb"
     security_groups = [ "perf" ]

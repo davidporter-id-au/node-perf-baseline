@@ -299,3 +299,39 @@ At 200 users, the latency is still high, performance is not significantly increa
 | Name  | # requests | # fails | Median | Average | Min |  Max | Content Size | # reqs/sec |
 | Total |      18497 |       0 |   3800 |    3845 |  16 | 8522 |           29 |       40.4 |
 ```
+
+
+### 9/8/2015 - Single m3.medium from m4 large @600 users with 1000 records (test 9)
+
+Circumstance: 
+- Webserver running in Docker on a m3.medium instance 
+- Load-test tool running on an m4.large instance in the same VPC
+
+Tools: 
+- Locust.io
+
+Parameters: 
+- Users: 600
+- Ramp up: 20 per second
+- Max/min wait times for locust users: 1000/1000
+- provisioned IOPs on index 100
+- Fetching dynamodb records [1000..2000] at random
+
+Results: 
+- Mostly 125 RPS, however, with some variation lowering to half that. Probably 110 RPS on average
+- CPU % usage steady at 92%
+- Zero failures
+
+Significantly steadier performance than the t2 small with the webserver showing relatively little variation in response-time. 
+Relative to the t2.small without CPU credits, the performance is about 175% better at this relatively high load. Device is almost
+certainly CPU bound. 
+
+```
+| Name  | # requests | # failures | Median response time | Average response time | Min response time | Max response time | Average Content Size | Requests/s |
+| Total |     114265 |          0 |                 4800 |                  4533 |                17 |              5991 |                   29 |     107.98 |
+```
+
+```
+| Name       | # requests |  50% |  66% |  75% |  80% |  90% |  95% |  98% |  99% | 100% |
+| None Total |     114335 | 4800 | 5000 | 5100 | 5100 | 5200 | 5300 | 5500 | 5600 | 5991 |
+```

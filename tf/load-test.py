@@ -4,7 +4,7 @@ import random
 class WebsiteTasks(TaskSet):
     @task
     def index(self):
-        self.client.get("/" + ("/" + (int)(random.random() * 1000 + 1000)))
+        self.client.get("/" + str((int)(random.random() * 1000 + 1000)))
 
 class WebsiteUser(HttpLocust):
     task_set = WebsiteTasks
