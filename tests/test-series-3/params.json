@@ -1,0 +1,16 @@
+{
+    "IndexName": "recipientIndex",
+    "KeyConditions": {
+        "recipientUserId": {
+            "AttributeValueList": [
+                {
+                    "N": "27426684"
+                }
+            ],
+            "ComparisonOperator": "EQ"
+        }
+    },
+    "Limit": 100,
+    "ScanIndexForward": false,
+    "TableName": "candidate-comms-communications"
+}

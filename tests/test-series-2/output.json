@@ -1,0 +1,39 @@
+{
+  "_links": {
+    "viewed": {
+      "href": "http://candidate-comms-resource-api-sandbox.elasticbeanstalk.com/communications/events/viewed"
+    }
+  },
+  "communications": [
+    {
+      "_links": {
+        "read": {
+          "href": "http://candidate-comms-resource-api-sandbox.elasticbeanstalk.com/communications/39ce529e-43bc-4ff4-8f5b-e3441a821453/events/read"
+        }
+      },
+      "id": "39ce529e-43bc-4ff4-8f5b-e3441a821453",
+      "type": "invitetoapply",
+      "sourceSystemKey": "invitetoapply-6f3fce04-0def-4584-9d80-f8ebbe621659",
+      "sourceMessageId": "6f3fce04-0def-4584-9d80-f8ebbe621659",
+      "status": "new",
+      "insertDate": 1439945130,
+      "data": {
+        "logoURL": "https://seek.com.au/logo/1234",
+        "area": "South Melbourne",
+        "jobId": 27863530,
+        "location": "Melbourne",
+        "jobSeekerID": 1234,
+        "emailAddress": "someone@example.com",
+        "subscriberKey": "86ecb3fd-13a8-4d53-9ad7-b4dda1ca8312",
+        "firstName": "Stefan",
+        "emailTemplate": "email_template",
+        "jobURL": "https://seek.com.au/job/4321",
+        "jobTitle": "Senior Developer",
+        "advertiserName": "Advertiser"
+      },
+      "createdDate": 1432008436,
+      "recipientProfileId": 3321512,
+      "recipientUserId": 27426684
+    }
+  ]
+}
