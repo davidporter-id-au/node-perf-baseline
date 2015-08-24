@@ -5,6 +5,7 @@ const db = new aws.DynamoDB({region: "ap-southeast-2"});
 const parse = require('co-body');
 const bluebird = require('bluebird');
 const table = "node-perf-baseline";
+const prettyHrtime = require('pretty-hrtime');
 
 bluebird.promisifyAll(Object.getPrototypeOf(db));
 
@@ -28,8 +29,10 @@ module.exports.fetch = function * (){
     };
 
     try{
+        const start = process.hrtime();
         const o = yield db.queryAsync(params);
         this.body = o;
+        console.log('elapsed', prettyHrtime(process.hrtime(start)));
     }
     catch (e){
         console.error({ message: 'error when reading from database', e: e })
